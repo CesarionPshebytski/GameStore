@@ -50,7 +50,7 @@ class GameSpecs {
         if (!(restriction <= searchSpecs.getRestriction())) {
             return false;
         }
-        if (genre.equals(Genres.ANY) && !genre.equals(searchSpecs.getGenre())) {
+        if (!genre.equals(searchSpecs.getGenre())) {
             return false;
         }
         if (!platform.equals(searchSpecs.getPlatform())) {

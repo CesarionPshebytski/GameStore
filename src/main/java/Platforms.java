@@ -1,17 +1,14 @@
 public enum Platforms {
-    WIN, MACOS, LINUX;
+    WIN("Windows"), MACOS("Macos"), LINUX("Linux");
+
+    private String name;
+
+    Platforms(String name) {
+        this.name = name;
+    }
 
     @Override
     public String toString() {
-        switch (this) {
-            case WIN:
-                return "Windows";
-            case MACOS:
-                return "macOS";
-            case LINUX:
-                return "linux";
-            default:
-                return "no such platform";
-        }
+        return name;
     }
 }
