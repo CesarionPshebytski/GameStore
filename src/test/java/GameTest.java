@@ -1,6 +1,6 @@
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
@@ -26,4 +26,12 @@ public class GameTest {
         ComputerGame computerGame1 = new ComputerGame(TestGames.GameSpecs1());
         assertFalse(computerGame3.getGameSpecs().getGenre().equals(computerGame1.getGameSpecs().getGenre()));
     }
+
+    @Test
+    public void TestGame4() {
+        ComputerGame computerGame2 = new ComputerGame(TestGames.GameSpecs2());
+        ComputerGame computerGame1 = new ComputerGame(TestGames.GameSpecs1());
+        assertFalse(computerGame2.getGameSpecs().getRestriction() == (computerGame1.getGameSpecs().getRestriction()));
+    }
+
 }

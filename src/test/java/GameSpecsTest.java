@@ -7,26 +7,39 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
 public class GameSpecsTest {
-    private GameSpecs someParams, otherParams;
+    private GameSpecs someSpecs, otherSpecs, moreSpecs;
 
     @Before
     public void setUp() throws Exception {
-        someParams = TestGames.GameSpecs1();
-        otherParams = TestGames.GameSpecs2();
+        someSpecs = TestGames.GameSpecs1();
+        otherSpecs = TestGames.GameSpecs2();
+        moreSpecs = TestGames.GameSpecs3();
     }
 
     @Test
     public void matchingTest1() throws Exception {
-        assertTrue(someParams.matches(someParams));
-    }
-
-    @Test
-    public void TestDescription() throws Exception {
-        assertFalse(Objects.equals(someParams.getDescription(), otherParams.getDescription()));
+        assertTrue(someSpecs.matches(someSpecs));
     }
 
     @Test
     public void matchingTest2() throws Exception {
-        assertFalse(someParams.matches(otherParams));
+        assertFalse(someSpecs.matches(otherSpecs));
     }
+
+    @Test
+    public void TestPlatform() throws Exception {
+        assertFalse(Objects.equals(someSpecs.getPlatform(), otherSpecs.getPlatform()));
+    }
+
+    @Test
+    public void TestRestriction() throws Exception {
+        assertFalse(Objects.equals(someSpecs.getRestriction(), moreSpecs.getRestriction()));
+    }
+
+    @Test
+    public void TestName() throws Exception {
+        assertFalse(Objects.equals(otherSpecs.getName(), moreSpecs.getName()));
+    }
+
+
 }
