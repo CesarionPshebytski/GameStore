@@ -7,7 +7,7 @@ class ComputerGame {
     ComputerGame(GameSpecs specs) {
         this.gameSpecs = specs;
         this.id = idCounter;
-        idCounter++;
+        ComputerGame.idCounter++;
     }
 
     int getId() {
