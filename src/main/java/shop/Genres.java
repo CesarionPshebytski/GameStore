@@ -1,3 +1,5 @@
+package shop;
+
 public enum Genres {
     ACTION("Action"), MOBA("MOBA"), SIMULATION("Simulation");
 

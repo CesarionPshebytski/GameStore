@@ -1,3 +1,5 @@
+package shop;
+
 public enum Platforms {
     WIN("Windows"), MACOS("Macos"), LINUX("Linux");
 

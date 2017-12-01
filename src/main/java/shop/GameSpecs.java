@@ -1,4 +1,6 @@
-class GameSpecs {
+package shop;
+
+public class GameSpecs {
     private String name;
     private String description;
     private int restriction;
@@ -6,7 +8,7 @@ class GameSpecs {
     private Object genre;
     private Object platform;
 
-    GameSpecs(String name, double price, int restriction, Genres genre,
+    public GameSpecs(String name, double price, int restriction, Genres genre,
               Platforms platform, String description) {
         this.name = name;
         this.price = price;
@@ -57,5 +59,38 @@ class GameSpecs {
             return false;
         }
         return description.contains(searchSpecs.getDescription());
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        GameSpecs gameSpecs = (GameSpecs) o;
+
+        if (restriction != gameSpecs.restriction) return false;
+        if (Double.compare(gameSpecs.price, price) != 0) return false;
+        if (!name.equals(gameSpecs.name)) return false;
+        if (!description.equals(gameSpecs.description)) return false;
+        if (!genre.equals(gameSpecs.genre)) return false;
+        return platform.equals(gameSpecs.platform);
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = name.hashCode();
+        result = 31 * result + description.hashCode();
+        result = 31 * result + restriction;
+        temp = Double.doubleToLongBits(price);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + genre.hashCode();
+        result = 31 * result + platform.hashCode();
+        return result;
     }
 }
